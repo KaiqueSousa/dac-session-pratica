@@ -1,8 +1,10 @@
 package br.edu.ifpb.gerenciador;
 
+import br.edu.ifpb.intefaces.PlaylistInterface;
 
 
-public class GerenciadorDeBanda implements Playlist {
+
+public class GerenciadorDeBanda implements PlaylistInterface {
 
     private List<Banda> banda = new ArrayList<>();
 
@@ -11,7 +13,7 @@ public class GerenciadorDeBanda implements Playlist {
     }
 
 
-    public boolean  excluirBanda(int id) {
+    public boolean excluirBanda(int id) {
         return bandaDao.excluir(id);
     }
 

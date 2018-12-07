@@ -1,4 +1,4 @@
-package br.edu.ifpb.carrinho;
+package br.edu.ifpb.gerenciador;
 
 import java.util.ArrayList;
 import java.util.Collections;

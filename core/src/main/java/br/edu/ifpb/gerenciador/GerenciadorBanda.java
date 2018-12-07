@@ -1,3 +1,5 @@
+package br.edu.ifpb.gerenciador;
+
 
 
 public class GerenciadorDeBanda implements Playlist {

@@ -1,4 +1,4 @@
-package br.edu.ifpb.carrinho;
+package br.edu.ifpb.gerenciador;
 
 import br.edu.ifpb.domain.Produto;
 import java.util.ArrayList;

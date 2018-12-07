@@ -16,7 +16,10 @@ import javax.ejb.Stateless;
 import javax.sql.DataSource;
 import javax.annotation.Resource;
 
-
+/**
+ *
+ * @author kaique
+ */
 @Stateless
 @Remote(BandaInterface.class)
 public class BandaImplDAOBanco implements BandaInterface{

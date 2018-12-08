@@ -1,9 +1,7 @@
 package br.edu.ifpb.infra;
 
-import br.edu.ifpb.pratica.DAO.connect.ConFactory;
-import br.edu.ifpb.pratica.DAO.connect.DataBase;
-import br.edu.ifpb.pratica.DAO.interfaces.BandaInterface;
-import br.edu.ifpb.pratica.model.Banda;
+import br.edu.ifpb.intefaces.BandaInterface;
+import br.edu.ifpb.model.Banda;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -104,4 +102,6 @@ public class BandaImplDAOBanco implements BandaInterface{
         return new Banda(id, localDeOrigem, nomeFantasia);
 
     }   
+
+    
 }

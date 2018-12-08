@@ -1,5 +1,6 @@
 package br.edu.ifpb.gerenciador;
 
+import br.edu.ifpb.carrinho.CarrinhoProdutoIF;
 import br.edu.ifpb.domain.Produto;
 import java.util.ArrayList;
 import java.util.Collections;

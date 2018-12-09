@@ -1,28 +1,38 @@
 package br.edu.ifpb.gerenciador;
 
 import br.edu.ifpb.intefaces.PlaylistInterface;
+import br.edu.ifpb.model.Banda;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.ejb.Remote;
+import javax.ejb.Stateful;
 
+@Stateful
+@Remote(PlaylistInterface.class)
+public class GerenciadorBanda implements PlaylistInterface {
 
-
-public class GerenciadorDeBanda implements PlaylistInterface {
-
-    private List<Banda> banda = new ArrayList<>();
-
-    public boolean salvarBanda (Banda banda) {
-        return bandaDao.salvar(banda);
+    private List<Banda> bandas = new ArrayList<>();
+    
+    @Override
+    public void salvarBanda (Banda banda) {
+        this.bandas.add(banda);
     }
 
-
-    public boolean excluirBanda(int id) {
-        return bandaDao.excluir(id);
+    @Override
+    public void excluirBanda(Banda banda) {
+        this.bandas.remove(banda);
     }
 
-    public boolean atualizarBanda (Banda banda) {
-        return bandaDao.atualizar(banda);
+    @Override
+    public void atualizarBanda (Banda banda) {
+        this.bandas.remove(banda.getId());
+        this.bandas.add(banda);
     }
 
-    public List<Banda> listarBandas () {
-        return bandaDao.listarBandas();
+    @Override
+    public List<Banda> listarBandas() {
+        return Collections.unmodifiableList(this.bandas);
     }
 
 }

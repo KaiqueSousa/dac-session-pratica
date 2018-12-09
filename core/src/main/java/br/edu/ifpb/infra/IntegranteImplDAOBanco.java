@@ -1,10 +1,8 @@
 package br.edu.ifpb.infra;
 
-import br.edu.ifpb.pratica.DAO.interfaces.IntegrantesInterface;
-import br.edu.ifpb.pratica.DAO.connect.ConFactory;
-import br.edu.ifpb.pratica.DAO.connect.DataBase;
-import br.edu.ifpb.pratica.model.CPF;
-import br.edu.ifpb.pratica.model.Integrante;
+import br.edu.ifpb.intefaces.IntegrantesInterface;
+import br.edu.ifpb.model.CPF;
+import br.edu.ifpb.model.Integrante;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +22,7 @@ import javax.sql.DataSource;
 import javax.annotation.Resource;
 
 @Stateless
-@Remote(IntergrantesInterface.class)
+@Remote(IntegrantesInterface.class)
 public class IntegranteImplDAOBanco implements IntegrantesInterface{
     
     @Resource(lookup = "java:app/jdbc/sessionbeans")
@@ -117,4 +115,5 @@ public class IntegranteImplDAOBanco implements IntegrantesInterface{
         int id = result.getInt("id");
 
         return new Integrante(id, nome, dataDeNascimento, cpf);
+    }
 }

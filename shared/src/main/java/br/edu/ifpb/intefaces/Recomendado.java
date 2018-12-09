@@ -10,13 +10,13 @@ import java.util.List;
 
 /**
  *
- * @author kaique
+ * @author caio
  */
-public interface PlaylistInterface {
+public interface Recomendado {
     
-    void salvarBanda (Banda banda);
-    void excluirBanda(Banda banda);
-    void atualizarBanda (Banda banda);
-    List<Banda> listarBandas ();
+    void addBanda (Banda banda);
+    void removeBanda (Banda banda);
+    void updateBanda (Banda banda);
+    List<Banda> listarRecomendado ();
     
 }

@@ -102,4 +102,6 @@ public class BandaImplDAOBanco implements BandaInterface{
         return new Banda(id, localDeOrigem, nomeFantasia);
 
     }   
+
+    
 }

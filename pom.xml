@@ -17,7 +17,6 @@
          <module>core</module>
          <module>web</module>
          <module>shared</module>
-        <module>jse</module>
     </modules>
     
 

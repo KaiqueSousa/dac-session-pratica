@@ -16,4 +16,4 @@ Scrum Master: Kaíque Sousa
 
 Front-end: Matheus Ramires
 
-Back-end e DBA: Jonas Pequeno, Caio Guilherme
+Back-end e DBA: Jonas Pequeno, Caio Guilherme, Murillo Tavares

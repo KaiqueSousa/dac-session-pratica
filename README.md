@@ -10,6 +10,8 @@ Devem ser possível que o usuário realize as operações de CRUD para as entida
 
 As funcionalidades precisando serem disponíveis com UI (interface para o usuário) com um template usável.
 
+As funcionalidades precisando serem disponíveis com UI (interface para o usuário) com um template usável.
+
 # Equipe e Responsabilidades:
 
 Scrum Master: Kaíque Sousa

@@ -33,31 +33,6 @@ public class GerenciadorBanda implements PlaylistInterface {
     @Override
     public List<Banda> listarBandas() {
         return Collections.unmodifiableList(this.bandas);
-=======
-import java.util.List;
-
-
-
-public class GerenciadorDeBanda implements PlaylistInterface {
-
-    private List<Banda> banda = new ArrayList<>();
-    @Override
-    public boolean salvarBanda (Banda banda) {
-        return bandaDao.salvar(banda);
-    }
-
-    @Override
-    public boolean excluirBanda(int id) {
-        return bandaDao.excluir(id);
-    }
-    @Override
-    public boolean atualizarBanda (Banda banda) {
-        return bandaDao.atualizar(banda);
-    }
-    @Override
-    public List<Banda> listarBandas () {
-        return bandaDao.listarBandas();
->>>>>>> ff5545947d622c21d59c3d007bac001f5ebfda1e:core/src/main/java/br/edu/ifpb/gerenciador/GerenciadorDeBanda.java
     }
 
 }

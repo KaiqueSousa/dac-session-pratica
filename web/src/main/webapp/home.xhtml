@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
@@ -37,12 +38,15 @@
                                 <br/>
 
                                 <div class="columns">
-                                    <div class="column has-text-centered">
-                                        <a href="#modal-banda-#{banda.id}" class="button is-success" rel="modal:open">Atualizar</a>
-                                    </div>
-                                    <div class="column has-text-centered">     
-                                        <h:commandLink class="button is-danger" action="#{bandaController.deletar()}" value="Remover"/>
-                                    </div>
+                                    <h:form>
+                                        <div class="column has-text-centered">
+                                            <a href="#modal-banda-#{banda.id}" class="button is-success"
+                                               rel="modal:open" jsf:actionListener="#{bandaController.setBanda(banda)}" >Atualizar</a>
+                                        </div>
+                                        <div class="column has-text-centered">     
+                                            <h:commandLink class="button is-danger" action="#{bandaController.deletar(banda)}" value="Remover"/>
+                                        </div>
+                                    </h:form>
                                 </div>
                             </article>
                         </div>
@@ -50,20 +54,22 @@
                         <div id="modal-banda-#{banda.id}" class="modal">
                             <p class="title is-4">Atualizar #{banda.nomeFantasia}</p>
                             <h:form>
-                                <h:inputHidden value="#{banda.id}"/>
+                                <h:inputHidden value="#{bandaController.banda.id}"/>
                                 <div class="field">
                                     <label class="label has-text-weight-normal">Nome</label>
                                     <div class="control">
-                                        <h:inputText class="input" value="#{banda.nomeFantasia}"/>
+                                        <h:inputText class="input" value="#{bandaController.banda.nomeFantasia}"/>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label class="label has-text-weight-normal">Local de origem</label>
                                     <div class="control">
-                                        <h:inputText class="input" value="#{banda.localOrigem}"/>
+                                        <h:inputText class="input" value="#{bandaController.banda.localOrigem}"/>
                                     </div>
                                 </div>
-                                <h:commandButton class="button is-success is-fullwidth" value="Atualizar" action="#{bandaController.atualizar()}"/>
+                                <h:commandButton class="button is-success is-fullwidth" 
+                                                 value="Atualizar" 
+                                                 action="#{bandaController.atualizar()}"/>
                             </h:form>
                         </div>
                     </ui:repeat>
@@ -77,14 +83,17 @@
                             <article class="tile is-child box">
                                 <p class="title is-4">#{integrante.nome}</p>
                                 <p>#{integrante.dataDeNascimento}</p>
-                                <p>#{integrante.cpf}</p>
+                                <p>#{integrante.cpf.formatado()}</p>
+                                <!--<p>{integrante.nome}</p>-->
                                 <br/>
                                 <div class="columns">
                                     <div class="column has-text-centered">
                                         <a href="#modal-integrante-#{integrante.id}" class="button is-success" rel="modal:open">Atualizar</a>
                                     </div>
                                     <div class="column has-text-centered">     
-                                        <h:commandLink class="button is-danger" action="#{integranteController.deletar()}" value="Remover"/>
+                                        <h:form>
+                                            <h:commandLink class="button is-danger" action="#{integranteController.deletar()}" value="Remover"/>
+                                        </h:form>
                                     </div>
                                 </div>
                             </article>
@@ -108,12 +117,12 @@
                                                 <h:inputText class="input" value="#{integrante.cpf}"/>
                                             </div>
                                         </div>
-                                        <div class="column">
-                                            <label class="label has-text-weight-normal">Data de Nascimento</label>
-                                            <div class="control">
-                                                <h:inputText class="input" value="#{integrante.dataDeNascimento}"/>
-                                            </div>
-                                        </div>
+                                        <!--                                        <div class="column">
+                                                                                    <label class="label has-text-weight-normal">Data de Nascimento</label>
+                                                                                    <div class="control">
+                                                                                        <h:inputText class="input" value="{integrante.dataDeNascimento}"/>
+                                                                                    </div>
+                                                                                </div>-->
                                     </div>
                                 </div>
                                 <h:commandButton class="button is-success is-fullwidth" value="Atualizar" action="#{integranteController.atualizar()}"/>
@@ -127,13 +136,13 @@
                 <ui:include src="cadastroBanda.xhtml"></ui:include>
                 <ui:include src="cadastroIntegrantes.xhtml"></ui:include>
             </h:form>
-            
+
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
         <script>
-            var tabIntegrante= document.getElementById("integrante");
+            var tabIntegrante = document.getElementById("integrante");
             var tabBanda = document.getElementById("banda");
             tabIntegrante.onclick = function () {
                 $('#integrante').addClass('is-active');

@@ -1,14 +1,15 @@
 package br.edu.ifpb.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jonas
  */
-public class CPF {
+public class CPF implements Serializable {
 
     private String numero;
-    
-    
+
     public CPF() {
         this("");
     }
@@ -33,5 +34,5 @@ public class CPF {
     public boolean ehValido() {
         return this.numero.length() == 11;
     }
-   
+
 }

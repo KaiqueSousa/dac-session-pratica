@@ -1,6 +1,6 @@
 package br.edu.ifpb.model;
 
-
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -8,8 +8,8 @@ import java.util.Objects;
  *
  * @author jonas
  */
-public class Integrante {
-    
+public class Integrante implements Serializable {
+
     private int id;
     private String nome;
     private LocalDate dataDeNascimento;
@@ -17,15 +17,15 @@ public class Integrante {
 
     public Integrante() {
     }
-    
 
     public Integrante(int id, String nome, LocalDate dataDeNascimento) {
-        this.id = id;
-        this.nome = nome;
-        this.dataDeNascimento = dataDeNascimento;
+        this(id, nome, dataDeNascimento, new CPF(""));
     }
 
     public Integrante(int id, String nome, LocalDate dataDeNascimento, CPF cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.dataDeNascimento = dataDeNascimento;
         this.cpf = cpf;
     }
 
@@ -94,14 +94,9 @@ public class Integrante {
         return true;
     }
 
-    
     @Override
     public String toString() {
         return "Integrante{" + "id=" + id + ", nome=" + nome + ", dataDeNascimento=" + dataDeNascimento + ", cpf=" + cpf + '}';
     }
-    
-    
-    
-    
-    
+
 }

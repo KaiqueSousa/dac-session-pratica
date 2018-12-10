@@ -27,16 +27,16 @@ and open the template in the editor.
                         <h:inputText  class="input" converter ="converter.CPF" value="#{integranteController.integrante.cpf}"/>
                     </div>
                 </div>
-                <div class="field">
+<!--                <div class="field">
                     <div class="columns">
                         <div class="column">
                             <label class="label has-text-weight- ">Data de nascimento </label>
                             <div class="control">
-                                <h:inputText class="input" a:type="date"  value="#{integranteController.integrante.dataDeNascimento}"/>
+                                <h:inputText class="input" a:type="date"  value="{integranteController.integrante.dataDeNascimento}"/>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <br/>
                 <h:commandButton class="button is-success is-fullwidth" value="Cadastrar" action="#{integranteController.salvar()}"/>
             </h:form>

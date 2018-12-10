@@ -1,6 +1,7 @@
 package br.edu.ifpb.model;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -8,11 +9,12 @@ import java.util.Objects;
  *
  * @author jonas
  */
-public class Banda {
+public class Banda implements Serializable{
     
     private int id;
     private String nomeFantasia;
     private String localOrigem;
+    //TODO: url
 
     public Banda() {
     }
@@ -23,6 +25,7 @@ public class Banda {
         this.localOrigem = localOrigem;
     }
 
+    
     public int getId() {
         return id;
     }

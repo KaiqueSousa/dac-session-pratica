@@ -22,3 +22,4 @@ nb-configuration.xml
 
 **/*.json
 docker-compose.1.yml
+/web/nbproject/
